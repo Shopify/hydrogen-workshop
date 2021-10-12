@@ -10,7 +10,7 @@
     "vite": "^2.5.10"
   },
   "dependencies": {
-    "@shopify/hydrogen": "^0.1.0",
+    "@shopify/hydrogen": "^0.2.1",
     "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.3.4",
     "graphql-tag": "^2.12.4",

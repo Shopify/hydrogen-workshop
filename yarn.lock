@@ -293,15 +293,14 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
-"@shopify/hydrogen@^0.1.0":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@shopify/hydrogen/-/hydrogen-0.1.2.tgz#e6e22466b082651a4edca966804d600e8c9d0c80"
-  integrity sha512-2iplNB+4BJ5Zj7zQgbqs3Gyea+rJhTf5GF1WNirOF8b0axCAd+6M/uvO8gNi7B7bFtUJY74i5FM2FTypfLfvnw==
+"@shopify/hydrogen@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@shopify/hydrogen/-/hydrogen-0.2.1.tgz#acc4383e2cb280e0fff149244714ede5cb169df2"
+  integrity sha512-I834jmorV8CgqbzPXCpC/yNxrwzA8TA327SjecFGsjX2WU/RwUa91/k56Vvo0N6KlqbiiyGMtBHOp1rmgxONqQ==
   dependencies:
     "@vitejs/plugin-react" "^1.0.0"
     connect "^3.7.0"
     fast-glob "^3.2.5"
-    focus-trap-react "^8.5.0"
     graphql "^15.5.0"
     html-dom-parser "^1.0.1"
     html-react-parser "^1.2.6"
@@ -1003,20 +1002,6 @@ finalhandler@1.1.2:
     parseurl "~1.3.3"
     statuses "~1.5.0"
     unpipe "~1.0.0"
-
-focus-trap-react@^8.5.0:
-  version "8.8.1"
-  resolved "https://registry.yarnpkg.com/focus-trap-react/-/focus-trap-react-8.8.1.tgz#2c7043e748460a191a1c7e2552e7c964f3f9fd46"
-  integrity sha512-Uy7U/l3fozlwLYBSQHP91QjuRUUcAQ9FJ3glAGmwF/fXSiPa/4negTy02zWElLZdZDPIfebC8V14aI1Gzc5V3w==
-  dependencies:
-    focus-trap "^6.7.1"
-
-focus-trap@^6.7.1:
-  version "6.7.1"
-  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-6.7.1.tgz#d474f86dbaf3c7fbf0d53cf0b12295f4f4068d10"
-  integrity sha512-a6czHbT9twVpy2RpkWQA9vIgwQgB9Nx1PIxNNUxQT4nugG/3QibwxO+tWTh9i+zSY2SFiX4pnYhTaFaQF/6ZAg==
-  dependencies:
-    tabbable "^5.2.1"
 
 form-data@^3.0.0:
   version "3.0.1"
@@ -2076,11 +2061,6 @@ symbol-tree@^3.2.4:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
   integrity sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==
-
-tabbable@^5.2.1:
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-5.2.1.tgz#e3fda7367ddbb172dcda9f871c0fdb36d1c4cd9c"
-  integrity sha512-40pEZ2mhjaZzK0BnI+QGNjJO8UYx9pP5v7BGe17SORTO0OEuuaAwQTkAp8whcZvqon44wKFOikD+Al11K3JICQ==
 
 tailwindcss@^2.2.9:
   version "2.2.16"
