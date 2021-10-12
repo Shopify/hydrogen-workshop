@@ -10,8 +10,9 @@ export default function ProductDetails({product}) {
         </div>
         <div className="col-span-1 space-y-4">
           <Product.Title className="font-bold text-4xl"/>
-          <Product.Price className="font-semibold text-2xl"/>
+          <Product.Price className="font-semibold text-2xl" />
           <Product.Metafield namespace="reviews" keyName="rating" className="text-3xl text-yellow-500"/>
+          <Options />
           <Product.SelectedVariant.AddToCartButton className="bg-black text-white h-12 w-full rounded-xl text-xl">Add to cart</Product.SelectedVariant.AddToCartButton>
           <Product.SelectedVariant.BuyNowButton className="border border-black h-12 w-full rounded-xl text-xl">Buy it now</Product.SelectedVariant.BuyNowButton>
           <Product.SelectedVariant.ShopPayButton />
@@ -32,4 +33,38 @@ function Media() {
       })}
     </ul>
   )
+}
+
+function Options() {
+  const {options, setSelectedOption, selectedOptions} = useProduct();
+
+  return (
+    <ul>
+      {options.map((option) => {
+        return (
+          <li>
+            <span className="font-semibold">{option.name}</span>
+            <fieldset>
+              {option.values.map((value) => {
+                const checked = selectedOptions[option.name] === value;
+
+                return (
+                  <div>
+                    <input
+                      type="radio"
+                      id={`${option.name}-${value}`}
+                      name={option.name}
+                      value={value}
+                      checked={checked}
+                      onChange={() => setSelectedOption(option.name, value)} />
+                    <label htmlFor={`${option.name}-${value}`}>{value}</label>
+                  </div>
+                )
+              })}
+            </fieldset>
+          </li>
+        )
+      })}
+    </ul>
+  );
 }
