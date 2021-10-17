@@ -454,6 +454,11 @@
     react-ssr-prepass "^1.4.0"
     vite-plugin-inspect "^0.3.6"
 
+"@shopify/react-intersection-observer@^3.1.6":
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/@shopify/react-intersection-observer/-/react-intersection-observer-3.1.6.tgz#4c85183f47eef8d9c9f70ade0bf73fecbaf3be08"
+  integrity sha512-vechBzw2/2QJHUhRAFE8VxM4Fw1tX0ffsT5HlZr1a067DBbXonpD5Z8hg3yUTi42drMSMbtZ3XelHYXQtGXE2A==
+
 "@tailwindcss/typography@^0.4.0":
   version "0.4.1"
   resolved "https://registry.npmjs.org/@tailwindcss/typography/-/typography-0.4.1.tgz"

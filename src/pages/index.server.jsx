@@ -7,8 +7,9 @@ import gql from "graphql-tag";
 import Layout from "../components/Layout.server";
 import NotFound from "../components/NotFound.server";
 import ProductList from "../components/ProductList.client";
+import LoadMore from "../components/LoadMore.client";
 
-export default function Home() {
+export default function Home({ max = 4 }) {
   const { data } = useShopQuery({
     query: QUERY,
     variables: {
@@ -19,6 +20,7 @@ export default function Home() {
       numProductSellingPlanGroups: 0,
       numProductVariantMetafields: 10,
       numProductVariantSellingPlanAllocations: 10,
+      max,
     },
   });
 
@@ -30,7 +32,12 @@ export default function Home() {
 
   return (
     <Layout>
-      <ProductList products={products} />
+      <LoadMore
+        current={data.products.edges.length}
+        hasMore={data.products.pageInfo.hasNextPage}
+      >
+        <ProductList products={products} />
+      </LoadMore>
     </Layout>
   );
 }
@@ -44,12 +51,16 @@ const QUERY = gql`
     $numProductSellingPlanGroups: Int!
     $numProductVariantMetafields: Int!
     $numProductVariantSellingPlanAllocations: Int!
+    $max: Int!
   ) {
-    products(first: 9) {
+    products(first: $max) {
       edges {
         node {
           ...ProductProviderFragment
         }
+      }
+      pageInfo {
+        hasNextPage
       }
     }
   }
