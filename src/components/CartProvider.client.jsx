@@ -1,6 +1,5 @@
-import {useCallback} from 'react';
 import { CartProvider as ShopifyCartProvider } from '@shopify/hydrogen/client';
-import { useHistory } from "react-router-dom";
+import CartContext, {useCart} from './CartContext.client';
 /**
  * TODO: Remove this re-export once we find a long-term solution for
  * mixed Hydrogen Client Components.
@@ -8,15 +7,21 @@ import { useHistory } from "react-router-dom";
  */
 
 export default function CartProvider({ children, cart, numCartLines }) {
-  const history = useHistory();
+  return (
+    <CartContext>
+      <Provider cart={cart} numCartLines={numCartLines}>
+        {children}
+      </Provider>
+    </CartContext>
+  );
+}
 
-  const redirect = useCallback(() => {
-    history.push('/cart')
-  }, [])
+function Provider({children, cart, numCartLines }) {
+  const {openCart} = useCart();
 
   return (
-    <ShopifyCartProvider cart={cart} numCartLines={numCartLines} onCreate={redirect} onLineAdd={redirect}>
+    <ShopifyCartProvider cart={cart} numCartLines={numCartLines} onCreate={openCart} onLineAdd={openCart}>
       {children}
     </ShopifyCartProvider>
-  );
+  )
 }
