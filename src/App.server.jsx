@@ -10,6 +10,7 @@ import shopifyConfig from '../shopify.config';
 
 import NotFound from './components/NotFound.server';
 import CartProvider from './components/CartProvider.client';
+import Head from "./components/Head.server";
 
 export default function App({ ...serverState }) {
   const pages = import.meta.globEager('./pages/**/*.server.(jsx|tsx)');
@@ -21,6 +22,7 @@ export default function App({ ...serverState }) {
           return (
             <CartProvider cart={cart} numCartLines={numCartLines}>
               <Suspense fallback="Loading...">
+                <Head />
                 <Switch>
                   <DefaultRoutes
                     pages={pages}
