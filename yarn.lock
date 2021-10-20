@@ -435,10 +435,10 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
-"@shopify/hydrogen@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@shopify/hydrogen/-/hydrogen-0.2.1.tgz#acc4383e2cb280e0fff149244714ede5cb169df2"
-  integrity sha512-I834jmorV8CgqbzPXCpC/yNxrwzA8TA327SjecFGsjX2WU/RwUa91/k56Vvo0N6KlqbiiyGMtBHOp1rmgxONqQ==
+"@shopify/hydrogen@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@shopify/hydrogen/-/hydrogen-0.3.0.tgz#4cc6b2250252c2f273fb8dd7c76722d8e0d0b121"
+  integrity sha512-nZDZn+eDygKT+W4Itz+/rRAmciAYPA1z7x+r2vq3y4oHOo18rhDYeUu08UlpSV3IzXLVebSE2y9PcTwv5caTTQ==
   dependencies:
     "@vitejs/plugin-react" "^1.0.0"
     connect "^3.7.0"
