@@ -1,3 +1,9 @@
+import Layout from "../components/Layout.server";
+
 export default function Index() {
-  return <p>Hello, React Advanced London!</p>
+  return (
+    <Layout>
+      <p>Hello, React Advanced London!</p>
+    </Layout>
+  );
 }
