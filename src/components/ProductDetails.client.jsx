@@ -39,7 +39,6 @@ export default function ProductDetails({ product }) {
               Buy it now
             </Product.SelectedVariant.BuyNowButton>
           </div>
-          <Product.SelectedVariant.ShopPayButton />
           <Product.Description />
         </div>
       </div>
