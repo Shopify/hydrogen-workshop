@@ -44,7 +44,6 @@ export default function Cart() {
           <CartEstimatedCost as="span" amountType="total"/>
         </div>
         <CartCheckoutButton className="bg-black text-white font-semibold py-4 px-10 rounded-xl w-full">Check out</CartCheckoutButton>
-        <CartShopPayButton />
       </div>
     </>
   )

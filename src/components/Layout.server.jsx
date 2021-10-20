@@ -1,5 +1,6 @@
 import { useShopQuery, Link } from "@shopify/hydrogen";
 import gql from "graphql-tag";
+import CartSection from './CartSection.client';
 
 export default function Layout({ children }) {
   const { data } = useShopQuery({
@@ -17,8 +18,8 @@ export default function Layout({ children }) {
         </a>
       </div>
       <div className="min-h-screen max-w-screen">
-        <div className="text-center my-10">
-          <h1>
+        <div className="my-10 flex items-center justify-center">
+          <h1 className="mr-6">
             <Link
               className="font-bold uppercase text-2x-l tracking-widest"
               to="/"
@@ -26,6 +27,7 @@ export default function Layout({ children }) {
               {data.shop.name}
             </Link>
           </h1>
+          <CartSection />
         </div>
         <main className="mx-auto max-w-7xl px-6">{children}</main>
       </div>
