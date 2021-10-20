@@ -1,10 +1,10 @@
-import { Product, MediaFile, useProduct } from '@shopify/hydrogen/client';
+import { Product, MediaFile, useProduct, flattenConnection } from '@shopify/hydrogen/client';
 
 export default function ProductDetails({ product }) {
-  const initialVariantId = product.variants.edges[0].node.id;
+  const initialVariant = flattenConnection(product.variants)[0];
 
   return (
-    <Product product={product} initialVariantId={initialVariantId}>
+    <Product product={product} initialVariantId={initialVariant.id}>
       <div className="grid grid-cols-3 gap-4">
         <div className="col-span-2">
           <Product.SelectedVariant.Image className="rounded-lg" />

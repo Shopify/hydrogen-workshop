@@ -1,12 +1,12 @@
 import { PRODUCT_BY_HANDLE_QUERY } from '../../graphql/ProductByHandleQuery.js';
 import { useShopQuery, RawHtml } from '@shopify/hydrogen';
-import BitterLeaf from '../../components/BuyNowSection.client';
+import BuyNowSection from '../../components/BuyNowSection.client';
 
-export default function BitterLeafPage() {
+export default function HolyPondPage() {
   const { data } = useShopQuery({
     query: PRODUCT_BY_HANDLE_QUERY,
     variables: {
-      handle: 'bitter-leaf',
+      handle: 'sparkling-shape',
       numProductMedia: 10,
       numProductMetafields: 10,
       numProductVariants: 20,
@@ -34,7 +34,7 @@ export default function BitterLeafPage() {
       </div>
       <div className="p-10 space-y-4">
         <RawHtml string={data.product.descriptionHtml} />
-        <BitterLeaf variant={data.product.variants.edges[0].node.id} />
+        <BuyNowSection variant={data.product.variants.edges[0].node.id} />
       </div>
     </>
   );

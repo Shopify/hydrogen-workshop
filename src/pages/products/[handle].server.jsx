@@ -3,7 +3,7 @@ import { PRODUCT_BY_HANDLE_QUERY } from '../../graphql/ProductByHandleQuery.js';
 import { useShopQuery } from '@shopify/hydrogen';
 import ProductDetails from '../../components/ProductDetails.client';
 import NotFound from '../../components/NotFound.server';
-import Layout from '../../components/Layout.client';
+import Layout from '../../components/Layout.server';
 
 export default function Product() {
   const { handle } = useParams();
