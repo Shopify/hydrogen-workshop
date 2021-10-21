@@ -5,10 +5,10 @@ import {
 } from "@shopify/hydrogen";
 import Layout from "../components/Layout.server";
 import ProductList from "../components/ProductList.client";
-
+import LoadMore from "../components/LoadMore.client";
 import gql from "graphql-tag";
 
-export default function Index() {
+export default function Index({ first = 4 }) {
   const { data } = useShopQuery({
     query: QUERY,
     variables: {
@@ -19,6 +19,7 @@ export default function Index() {
       numProductSellingPlanGroups: 0,
       numProductVariantMetafields: 10,
       numProductVariantSellingPlanAllocations: 10,
+      first,
     },
   });
 
@@ -26,7 +27,9 @@ export default function Index() {
 
   return (
     <Layout>
-      <ProductList products={products} />
+      <LoadMore current={first}>
+        <ProductList products={products} />
+      </LoadMore>
     </Layout>
   );
 }
@@ -40,8 +43,9 @@ const QUERY = gql`
     $numProductSellingPlanGroups: Int!
     $numProductVariantMetafields: Int!
     $numProductVariantSellingPlanAllocations: Int!
+    $first: Int!
   ) {
-    products(first: 10) {
+    products(first: $first) {
       edges {
         node {
           ...ProductProviderFragment
