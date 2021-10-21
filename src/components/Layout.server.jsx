@@ -1,5 +1,6 @@
 import { useShopQuery, Link } from "@shopify/hydrogen";
 import gql from "graphql-tag";
+import Cart from './Cart.client';
 
 export default function Layout({ children }) {
   const { data } = useShopQuery({ query: QUERY });
@@ -22,6 +23,7 @@ export default function Layout({ children }) {
       <main id="mainContent" className="mx-auto max-w-7xl px-6">
         {children}
       </main>
+      <Cart />
     </div>
   );
 }

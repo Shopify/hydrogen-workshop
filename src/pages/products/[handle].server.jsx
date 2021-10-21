@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 import {useShopQuery, ProductProviderFragment} from '@shopify/hydrogen';
 import ProductDetails from '../../components/ProductDetails.client';
 import NotFound from '../../components/NotFound.server';
+import Layout from '../../components/Layout.server';
 
 export default function Product() {
   const {handle} = useParams();
@@ -24,7 +25,7 @@ export default function Product() {
     return <NotFound />
   }
 
-  return <ProductDetails product={data.product} />
+  return <Layout><ProductDetails product={data.product} /></Layout>
 }
 
 const QUERY = gql`
