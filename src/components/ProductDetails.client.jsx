@@ -5,18 +5,21 @@ export default function ProductDetails({product}) {
 
   return (
     <Product product={product} initialVariantId={initialVariant.id}>
-      <Product.SelectedVariant.Image />
-      <Gallery />
-      <Product.Title />
-      <Product.SelectedVariant.Price />
-      <Product.SelectedVariant.Price priceType="compareAt"/>
-      <Product.SelectedVariant.AddToCartButton>
-        Add to cart
-      </Product.SelectedVariant.AddToCartButton>
-      <Product.SelectedVariant.BuyNowButton>
-        Buy it now
-      </Product.SelectedVariant.BuyNowButton>
-      <Product.Description />
+      <div>
+        <Product.SelectedVariant.Image />
+        <Gallery />
+        <Product.Title />
+        <Product.SelectedVariant.Price />
+        <Product.SelectedVariant.Price priceType="compareAt"/>
+        <Options />
+        <Product.SelectedVariant.AddToCartButton>
+          Add to cart
+        </Product.SelectedVariant.AddToCartButton>
+        <Product.SelectedVariant.BuyNowButton>
+          Buy it now
+        </Product.SelectedVariant.BuyNowButton>
+        <Product.Description />
+      </div>
     </Product>
   )
 }
@@ -34,6 +37,38 @@ function Gallery() {
               height: 100,
               crop: 'center'
             }}/>
+          </li>
+        )
+      })}
+    </ul>
+  );
+}
+
+function Options() {
+  const {options, selectedOptions, setSelectedOption} = useProduct();
+
+  return (
+    <ul>
+      {options.map((option) => {
+        return (
+          <li>
+            <span>{option.name}</span>
+            {option.values.map((value) => {
+              return (
+                <>
+                  <input
+                    type="radio"
+                    value={value}
+                    id={value}
+                    name={option.name}
+                    checked={selectedOptions[option.name] === value}
+                    onChange={(event) => setSelectedOption(option.name, event.target.value)}
+                  />
+                  <label htmlFor={value}>{value}</label>
+
+                </>
+              )
+            })}
           </li>
         )
       })}
