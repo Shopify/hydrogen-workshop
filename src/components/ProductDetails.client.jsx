@@ -5,20 +5,34 @@ export default function ProductDetails({product}) {
 
   return (
     <Product product={product} initialVariantId={initialVariant.id}>
-      <div>
-        <Product.SelectedVariant.Image />
-        <Gallery />
-        <Product.Title />
-        <Product.SelectedVariant.Price />
-        <Product.SelectedVariant.Price priceType="compareAt"/>
-        <Options />
-        <Product.SelectedVariant.AddToCartButton>
-          Add to cart
-        </Product.SelectedVariant.AddToCartButton>
-        <Product.SelectedVariant.BuyNowButton>
-          Buy it now
-        </Product.SelectedVariant.BuyNowButton>
-        <Product.Description />
+      <div className="grid grid-cols-3">
+        <div className="col-span-2 mr-4">
+          <Product.SelectedVariant.Image className="rounded-lg"/>
+          <Gallery />
+        </div>
+        <div className="space-y-2">
+          <Product.Title className="text-3xl font-semibold"/>
+          <Product.SelectedVariant.Price>
+            {(price) => {
+              return (
+                <>
+                  <span className="text-xs text-gray-400 mr-2">{price.currencyCode}</span>
+                  <span>{price.currencyNarrowSymbol}</span>
+                  <span>{price.parts.map((part) => part.value).join('')}</span>
+                </>
+              );
+            }}
+          </Product.SelectedVariant.Price>
+          <Product.SelectedVariant.Price priceType="compareAt"/>
+          <Options />
+          <Product.SelectedVariant.AddToCartButton className="bg-black text-white px-6 py-2 rounded-lg">
+            Add to cart
+          </Product.SelectedVariant.AddToCartButton>
+          <Product.SelectedVariant.BuyNowButton className="border border-black px-6 py-2 rounded-lg">
+            Buy it now
+          </Product.SelectedVariant.BuyNowButton>
+          <Product.Description />
+        </div>
       </div>
     </Product>
   )
@@ -28,11 +42,11 @@ function Gallery() {
   const {media} = useProduct();
 
   return (
-    <ul>
+    <ul className="grid grid-cols-4 gap-2 mt-2">
       {media.map((productMedia) => {
         return (
           <li>
-            <MediaFile media={productMedia} options={{
+            <MediaFile className="rounded-lg" media={productMedia} options={{
               width: 100,
               height: 100,
               crop: 'center'
